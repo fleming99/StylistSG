@@ -1,2 +1,2 @@
-# StylishERP
-ERP project to a stylish.
+# StylistSG
+SG project to a stylist.
