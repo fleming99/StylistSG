@@ -1,13 +1,13 @@
-package com.fleming99.StylishERP;
+package com.fleming99.StylistSG;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StylishErpApplication {
+public class StylistSGApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StylishErpApplication.class, args);
+		SpringApplication.run(StylistSGApplication.class, args);
 	}
 
 }
