@@ -51,7 +51,8 @@ public class CustomerController {
             BindingResult bindingResult, Model theModel){
 
         if(bindingResult.hasErrors()){
-            theModel.addAttribute("registrationError", "has Errors");
+            System.out.println(bindingResult.getAllErrors());
+            theModel.addAttribute("registrationError", "Não foi possível salvar o(a) cliente.");
             theModel.addAttribute("customer", new CustomerDTO());
 
             return "customers/create-customer";
@@ -71,9 +72,9 @@ public class CustomerController {
         customer.setCustomerFirstName(customerDTO.getCustomerFirstName());
         customer.setCustomerLastName(customerDTO.getCustomerLastName());
         customer.setCustomerEmail(customerDTO.getCustomerEmail());
+        customer.setCustomerBirthDate(customerDTO.getCustomerBirthDate());
         customer.setCustomerAge(LocalDate.now().getYear() - customerDTO.getCustomerBirthDate().getYear());
         customer.setCustomerPhoneNumber(customerDTO.getCustomerPhoneNumber());
-        customer.setCustomerBirthDate(customerDTO.getCustomerBirthDate());
         customer.setCustomerAddressId(address);
 
         customerService.save(customer);
@@ -95,7 +96,7 @@ public class CustomerController {
             BindingResult bindingResult, Model theModel){
 
         if(bindingResult.hasErrors()){
-            theModel.addAttribute("registrationError", "has Errors");
+            theModel.addAttribute("registrationError", "Não foi possível salvar o(a) cliente.");
             theModel.addAttribute("customer", customerService.findById(theId));
 
             return "customers/create-customer";

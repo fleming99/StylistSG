@@ -14,13 +14,13 @@
 
     </head>
 
-    <body>
+    <body data-bs-theme="dark">
 
         <th:block th:insert="~{layout.html :: header}"></th:block>
 
-        <div class="container rounded m-5 p-3 bg-white" style="opacity: 0.9">
+        <div class="container rounded m-5 p-3 bg-dark" style="opacity: 0.9">
 
-            <h3 class="mb-3">Registrar Cliente</h3>
+            <h3 class="mb-3" style="color:white;">Registrar Cliente</h3>
 
             <hr class="mb-3">
 
@@ -55,7 +55,6 @@
 
                     <label class="form-label">Data de Nascimento: *</label>
                     <input type="date" th:field="*{customerBirthDate}" class="form-control mb-3 w-25">
-
                     <div th:if="${#fields.hasErrors('customerBirthDate')}"
                          style="margin-bottom: 25px" class="text-danger">
                         <ul>
@@ -65,7 +64,6 @@
 
                     <label class="form-label">E-mail: *</label>
                     <input type="text" th:field="*{customerEmail}" class="form-control mb-3 w-25" >
-
                     <div th:if="${#fields.hasErrors('customerEmail')}"
                          style="margin-bottom: 25px" class="text-danger">
                         <ul>
@@ -92,7 +90,6 @@
 
                     <label class="form-label">Rua/Avenida: *</label>
                     <input type="text" th:field="*{customerStreetName}" class="form-control mb-3 w-25">
-
                     <div th:if="${#fields.hasErrors('customerStreetName')}"
                          style="margin-bottom: 25px" class="text-danger">
                         <ul>
@@ -102,7 +99,6 @@
 
                     <label class="form-label">Número/APT: *</label>
                     <input type="text" th:field="*{customerHouseNumber}" class="form-control mb-3 w-25">
-
                     <div th:if="${#fields.hasErrors('customerHouseNumber')}"
                          style="margin-bottom: 25px" class="text-danger">
                         <ul>
@@ -112,7 +108,6 @@
 
                     <label class="form-label">Bairro: *</label>
                     <input type="text" th:field="*{customerNeighborhood}" class="form-control mb-3 w-25">
-
                     <div th:if="${#fields.hasErrors('customerNeighborhood')}"
                          style="margin-bottom: 25px" class="text-danger">
                         <ul>
@@ -121,8 +116,7 @@
                     </div>
 
                     <label class="form-label">Cidade: *</label>
-                    <input type="text" th:field="*{customerCity}" class="form-control mb-3 w-25">
-
+                    <input type="text" th:field="*{customerCity}" class="form-control mb-3 w-25"/>
                     <div th:if="${#fields.hasErrors('customerCity')}"
                          style="margin-bottom: 25px" class="text-danger">
                         <ul>
@@ -132,7 +126,6 @@
 
                     <label class="form-label">Estado: *</label>
                     <input type="text" th:field="*{customerState}" class="form-control mb-3 w-25">
-
                     <div th:if="${#fields.hasErrors('customerState')}"
                          style="margin-bottom: 25px" class="text-danger">
                         <ul>
@@ -142,7 +135,6 @@
 
                     <label class="form-label">País: *</label>
                     <input type="text" th:field="*{customerCountry}" class="form-control mb-3 w-25">
-
                     <div th:if="${#fields.hasErrors('customerCountry')}"
                          style="margin-bottom: 25px" class="text-danger">
                         <ul>
@@ -152,7 +144,7 @@
 
                 </div>
 
-                <button type="submit" class="btn btn-primary col-2">Adicionar Cliente</button>
+                <button type="submit" class="btn btn-success col-2">Adicionar Cliente</button>
 
             </form>
 

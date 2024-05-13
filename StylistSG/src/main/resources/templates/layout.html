@@ -11,10 +11,10 @@
 
     </head>
 
-    <body>
+    <body data-bs-theme="dark">
 
         <header th:fragment="header">
-            <nav class="navbar navbar-expand-lg" style="background-color: rgba(246, 248, 250, 0.7)">
+            <nav class="navbar bg-dark navbar-expand-lg" style="background-color: rgba(246, 248, 250, 0.7)">
                 <div class="container-fluid" style="font-weight: 700">
                     <a class="navbar-brand m-1" style="width:12%" th:href="@{/home}">Stylist SG</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,14 +32,14 @@
                         </ul>
 
                         <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success me-5" type="submit">Search</button>
+                            <input class="form-control me-2" type="search" placeholder="Digite..." aria-label="Search">
+                            <button class="btn btn-outline-success me-5" type="submit">Procurar</button>
                         </form>
 
                             <th:block th:if="${#authorization.expression('isAuthenticated()')}">
 
                                 <div class="mt-2">
-                                    <h5 class="nav-link me-5">Hello! You're authenticated!</h5>
+                                    <h5 class="nav-link me-5">Olá! Seja bem vindo.</h5>
                                 </div>
 
                                 <form th:action="@{/logout}" method="post">
@@ -52,9 +52,9 @@
             </nav>
         </header>
 
-        <footer th:fragment="footer" class="footer" style="background-color: rgba(246, 248, 250, 0.7)">
+        <footer th:fragment="footer" data-bs-theme="dark" class="footer" style="background-color: rgba(34, 34, 34, 0.7)">
             <div class="container">
-                <span class="text-muted m-2"> 2024 Stylist. All rights reserved.</span>
+                <span class="text-muted m-2"> 2024 Stylist SG. Todos os direitos reservados.</span>
             </div>
         </footer>
 
