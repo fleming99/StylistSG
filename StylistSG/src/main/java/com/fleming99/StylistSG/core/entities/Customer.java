@@ -3,11 +3,11 @@ package com.fleming99.StylistSG.core.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -26,7 +26,7 @@ public class Customer {
     private String customerLastName;
 
     @Column(name = "customer_birth_date")
-    private Date customerBirthDate;
+    private LocalDate customerBirthDate;
 
     @Column(name = "customer_age")
     private int customerAge;
@@ -36,4 +36,11 @@ public class Customer {
 
     @Column(name = "customer_email")
     private String customerEmail;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customer_address_fk")
+    private CustomerAddress customerAddressId;
+
+    @OneToOne(mappedBy = "customerId")
+    private Jobs jobs;
 }

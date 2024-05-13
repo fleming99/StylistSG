@@ -19,4 +19,7 @@ public class JobType {
 
     @Column(name = "type_name")
     private String typeName;
+
+    @OneToOne(mappedBy = "jobType")
+    private Jobs jobs;
 }

@@ -35,7 +35,6 @@ public class CustomerAddress {
     @Column(name = "customer_country")
     private String customerCountry;
 
-    @ManyToOne
-    @Column(name = "customer_id")
-    private Customer customerId;
+    @OneToOne(mappedBy = "customerAddressId")
+    private Customer customer;
 }

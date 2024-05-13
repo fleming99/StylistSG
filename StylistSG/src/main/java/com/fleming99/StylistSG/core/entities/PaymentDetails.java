@@ -3,6 +3,7 @@ package com.fleming99.StylistSG.core.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -23,8 +24,11 @@ public class PaymentDetails {
     private String bankDetails;
 
     @Column(name = "payment_date")
-    private Date paymentDate;
+    private LocalDate paymentDate;
 
     @Column(name = "payment")
     private double payment;
+
+    @OneToOne(mappedBy = "jobPaymentId")
+    private Jobs jobPayment;
 }

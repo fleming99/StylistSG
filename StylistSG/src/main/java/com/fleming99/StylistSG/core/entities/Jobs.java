@@ -3,7 +3,7 @@ package com.fleming99.StylistSG.core.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -16,108 +16,112 @@ public class Jobs {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int job_id;
+    @Column(name = "job_id")
+    private int jobId;
 
     @Column(name = "initial_date")
-    private Date initialDate;
+    private LocalDate initialDate;
 
     @Column(name = "dress_description")
     private String dressDescription;
 
     @OneToOne
-    @Column(name = "job_type_id")
+    @JoinColumn(name = "job_type_id")
     private JobType jobType;
 
     @Column(name = "job_price")
-    private double job_price;
+    private String jobPrice;
 
     @Column(name = "job_status")
     private boolean jobStatus;
 
     @Column(name = "finish_date")
-    private Date finishDate;
+    private LocalDate finishDate;
 
     @Column(name = "customer_bust")
-    private double customerBust;
+    private String customerBust;
 
     @Column(name = "customer_waist")
-    private double customerWaist;
+    private String customerWaist;
 
     @Column(name = "customer_hip")
-    private double customerHip;
+    private String customerHip;
 
     @Column(name = "customer_front_body_height")
-    private double customerFrontBodyHeight;
+    private String customerFrontBodyHeight;
 
     @Column(name = "customer_back_body_height")
-    private double customerBackBodyHeight;
+    private String customerBackBodyHeight;
 
     @Column(name = "customer_os")
-    private double customerOs;
+    private String customerOs;
 
     @Column(name = "customer_ss")
-    private double customerSs;
+    private String customerSs;
 
     @Column(name = "customer_aq")
-    private double customerAq;
+    private String customerAq;
 
     @Column(name = "customer_front_cleavage")
-    private double customerFrontCleavage;
+    private String customerFrontCleavage;
 
     @Column(name = "customer_back_cleavage")
-    private double customerBackCleavage;
+    private String customerBackCleavage;
 
     @Column(name = "customer_shoulder")
-    private double customerShoulder;
+    private String customerShoulder;
 
     @Column(name = "customer_back")
-    private double customerBack;
+    private String customerBack;
 
     @Column(name = "customer_cf")
-    private double customerCf;
+    private String customerCf;
 
     @Column(name = "customer_cc")
-    private double customerCc;
-
-    @Column(name = "customer_arm_length")
-    private double customerArmLength;
+    private String customerCc;
 
     @Column(name = "customer_arm_width")
-    private double customerArmWidth;
+    private String customerArmWidth;
+
+    @Column(name = "customer_arm_length")
+    private String customerArmLength;
 
     @Column(name = "customer_wrist")
-    private double customerWrist;
+    private String customerWrist;
 
     @Column(name = "customer_comp_blouse")
-    private double customerCompBlouse;
+    private String customerCompBlouse;
 
     @Column(name = "customer_comp_skirt")
-    private double customerCompSkirt;
+    private String customerCompSkirt;
 
     @Column(name = "customer_neck")
-    private double customerNeck;
+    private String customerNeck;
 
     @Column(name = "customer_armhole")
-    private double customerArmhole;
+    private String customerArmhole;
 
     @Column(name = "customer_front_hook")
-    private double customerFrontHook;
+    private String customerFrontHook;
+
+    @Column(name = "customer_back_hook")
+    private String customerBackHook;
 
     @Column(name = "customer_knee")
-    private double customerKnee;
+    private String customerKnee;
 
     @Column(name = "job_notes")
     private String jobNotes;
 
     @OneToOne
-    @Column(name = "customer_id")
+    @JoinColumn(name = "customer_id")
     private Customer customerId;
 
-    @ManyToOne
-    @Column(name = "job_payment_id")
+    @OneToOne
+    @JoinColumn(name = "job_payment_id")
     private PaymentDetails jobPaymentId;
 
     @OneToOne
-    @Column(name = "stylist_id")
+    @JoinColumn(name = "stylist_id")
     private StylistEmployee stylistId;
 }
