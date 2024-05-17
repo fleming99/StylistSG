@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -29,6 +29,7 @@ public class PaymentDetails {
     @Column(name = "payment")
     private double payment;
 
-    @OneToOne(mappedBy = "jobPaymentId")
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "job_payment_id")
     private Jobs jobPayment;
 }

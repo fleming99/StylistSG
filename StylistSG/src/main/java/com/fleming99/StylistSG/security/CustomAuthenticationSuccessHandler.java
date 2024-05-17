@@ -29,7 +29,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException{
 
-        var user = userService.findByEmail(authentication.getName());
+        StylistEmployee user = userService.findByEmail(authentication.getName());
 
         HttpSession session = request.getSession();
         session.setAttribute("user", user);

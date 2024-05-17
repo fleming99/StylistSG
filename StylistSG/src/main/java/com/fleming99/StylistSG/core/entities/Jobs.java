@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -117,11 +118,6 @@ public class Jobs {
     @JoinColumn(name = "customer_id")
     private Customer customerId;
 
-    @OneToOne
-    @JoinColumn(name = "job_payment_id")
-    private PaymentDetails jobPaymentId;
-
-    @OneToOne
-    @JoinColumn(name = "stylist_id")
-    private StylistEmployee stylistId;
+    @OneToMany(mappedBy = "jobPayment", cascade = CascadeType.ALL)
+    private List<PaymentDetails> jobPaymentId;
 }

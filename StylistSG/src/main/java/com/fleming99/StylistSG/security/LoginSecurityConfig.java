@@ -20,9 +20,9 @@ public class LoginSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity, AuthenticationSuccessHandler authenticationSuccessHandler) throws Exception{
 
         httpSecurity.authorizeHttpRequests(configurer -> configurer
-                .requestMatchers("/", "/home", "/authenticateTheUser", "/login-page", "/login", "/login-directory", "/static/**", "/css/**", "/images/**", "/index")
+                .requestMatchers("/authenticateTheUser", "/login-page", "/login", "/login-directory", "/static/**", "/css/**", "/images/**", "/index")
                 .permitAll()
-                .requestMatchers("/templates/**", "/customers/**", "/create-customer", "/customers-list", "/update-customer", "/jobs/**", "/jobs-list", "/create-new-job", "/update-job").hasRole("ADMIN")
+                .requestMatchers("/", "/home", "/templates/**", "/customers/**", "/create-customer", "/customers-list", "/update-customer", "/jobs/**", "/jobs-list", "/create-new-job", "/update-job").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
         ).formLogin(form -> form
@@ -32,7 +32,7 @@ public class LoginSecurityConfig {
                 .permitAll()
                 .defaultSuccessUrl("/home")
         ).logout(logout->logout
-                .permitAll().logoutSuccessUrl("/home")
+                .permitAll().logoutSuccessUrl("/login")
         ).exceptionHandling(configurer->configurer
                 .accessDeniedPage("/access-denied")
         );
@@ -45,7 +45,7 @@ public class LoginSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    public DaoAuthenticationProvider authenticationProvider (UserService userService){
+    public DaoAuthenticationProvider authenticationProvider (UserService<StylistEmployee> userService){
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(userService);
         auth.setPasswordEncoder(passwordEncoder());

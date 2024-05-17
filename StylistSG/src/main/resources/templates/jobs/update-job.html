@@ -47,11 +47,6 @@
                         <option th:each="tempCustomer : ${customersList}" th:value="${tempCustomer.customerId}" th:text="${tempCustomer.customerFirstName} + ' ' + ${tempCustomer.customerLastName}"></option>
                     </select>
 
-                    <label class="form-label">Estilista: *</label>
-                    <select th:field="*{stylistId.stylistId}" class="form-select mb-3 w-25"  aria-label="Default select example" placeholder="Selecione o estilista" required>
-                        <option th:each="tempStylist : ${stylist}" th:value="${tempStylist.stylistId}" th:text="${tempStylist.stylistFirstName} + ' ' + ${tempStylist.stylistLastName}"></option>
-                    </select>
-
                     <label class="form-label">Entrega: *</label>
                     <input type="text" th:field="*{finishDate}" class="form-control mb-3 w-25">
                     <div th:if="${#fields.hasErrors('finishDate')}" style="margin-bottom: 25px" class="text-danger">
@@ -87,7 +82,9 @@
                         </ul>
                     </div>
 
-                    <h3> Medidas </h3>
+                    <h3 class="mb-3" style="color:white;"> Medidas </h3>
+
+                    <hr class="mb-3">
 
                     <label class="form-label">Busto:</label>
                     <input type="text" placeholder="0,0" th:field="*{customerBust}" class="form-control mb-3 w-25">
@@ -339,21 +336,35 @@
                         </ul>
                     </div>
 
-                    <h3 class="mb-3">Novo pagamento</h3>
+                <h3 class="mb-3" style="color:white;">Adicionar Pagamento</h3>
 
-                    <hr class="mb-3">
+                <hr class="mb-3">
 
-                    <div class="mb-3 form-group">
+                    <label class="form-label">Banco </label>
+                    <input type="text" th:field="*{paymentDetails.bankDetails}" class="form-control mb-3 w-25">
+                    <div th:if="${#fields.hasErrors('paymentDetail.bankDetails')}"
+                         style="margin-bottom: 25px" class="text-danger">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('paymentDetail.bankDetails')}" th:text="'Banco ' + ${err}"></li>
+                        </ul>
+                    </div>
 
-                        <label class="form-label">Banco:</label>
-                        <input type="text" th:field="*{jobPaymentId.bankDetails}" class="form-control mb-3 w-25">
+                    <label class="form-label">Data de pagamento *</label>
+                    <input type="date" th:field="*{jobPaymentId.paymentDate}" class="form-control mb-3 w-25">
+                    <div th:if="${#fields.hasErrors('paymentDetail.paymentDate')}"
+                         style="margin-bottom: 25px" class="text-danger">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('paymentDetail.paymentDate')}" th:text="'Data de pagamento ' + ${err}"></li>
+                        </ul>
+                    </div>
 
-                        <label class="form-label">Data do Pagamento:</label>
-                        <input type="date" th:field="*{jobPaymentId.paymentDate}" class="form-control mb-3 w-25">
-
-                        <label class="form-label">Valor:</label>
-                        <input type="text" th:field="*{jobPaymentId.payment}" class="form-control mb-3 w-25">
-
+                    <label class="form-label">Valor: *</label>
+                    <input type="text" th:field="*{jobPaymentId.payment}" class="form-control mb-3 w-25">
+                    <div th:if="${#fields.hasErrors('paymentDetail.payment')}"
+                         style="margin-bottom: 25px" class="text-danger">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('paymentDetail.payment')}" th:text="'Valor ' + ${err}"></li>
+                        </ul>
                     </div>
 
                 </div>

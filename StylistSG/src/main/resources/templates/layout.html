@@ -22,30 +22,32 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{/customers/customers-list}">Clientes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{/jobs/jobs-list}">Trabalhos</a>
-                            </li>
-                        </ul>
 
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Digite..." aria-label="Search">
-                            <button class="btn btn-outline-success me-5" type="submit">Procurar</button>
-                        </form>
+                        <th:block th:if="${#authorization.expression('isAuthenticated()')}">
 
-                            <th:block th:if="${#authorization.expression('isAuthenticated()')}">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link" th:href="@{/customers/customers-list}">Clientes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" th:href="@{/jobs/jobs-list}">Trabalhos</a>
+                                </li>
+                            </ul>
 
-                                <div class="mt-2">
-                                    <h5 class="nav-link me-5">Olá! Seja bem vindo.</h5>
-                                </div>
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Digite..." aria-label="Search">
+                                <button class="btn btn-outline-success me-5" type="submit">Procurar</button>
+                            </form>
 
-                                <form th:action="@{/logout}" method="post">
-                                    <input class="btn btn-group btn-success" type="submit" value="Logout">
-                                </form>
-                            </th:block>
+                            <div class="mt-2">
+                                <h5 class="nav-link me-5">Olá! Seja bem vindo.</h5>
+                            </div>
+
+                            <form th:action="@{/logout}" method="post">
+                                <input class="btn btn-group btn-success" type="submit" value="Logout">
+                            </form>
+
+                        </th:block>
 
                     </div>
                 </div>

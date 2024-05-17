@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService<StylistEmployee> {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        var stylistEmployee = stylistEmployeeDAO.findByEmail(email);
+        StylistEmployee stylistEmployee = stylistEmployeeDAO.findByEmail(email);
 
         if (stylistEmployee == null){
             System.out.println("o problema está aqui");

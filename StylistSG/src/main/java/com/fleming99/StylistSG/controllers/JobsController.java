@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.naming.Binding;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -92,13 +93,11 @@ public class JobsController {
         List<Customer> customers = customerService.findAll();
         List<JobType> jobTypes = jobTypeService.findAll();
         List<StylistEmployee> stylistEmployees = stylistEmployee.findAll();
-        List<PaymentDetails> paymentDetails = paymentDetailsEntityService.findAll();
 
         theModel.addAttribute("job", jobsService.findById(theId));
         theModel.addAttribute("customersList", customers);
         theModel.addAttribute("jobType", jobTypes);
         theModel.addAttribute("stylist", stylistEmployees);
-        theModel.addAttribute("paymentDetails", paymentDetails);
 
         return "jobs/update-job";
     }

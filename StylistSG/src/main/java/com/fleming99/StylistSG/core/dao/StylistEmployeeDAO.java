@@ -20,9 +20,15 @@ public class StylistEmployeeDAO implements EntityDAO<StylistEmployee> {
     @Override
     public StylistEmployee findByEmail(String email) {
 
-        TypedQuery<StylistEmployee> employeeTypedQuery = entityManager.createQuery("from StylistEmployee where stylistEmail=:email and activeProfile=true", StylistEmployee.class);
-        employeeTypedQuery.setParameter("email",email);
+        TypedQuery<StylistEmployee> query = entityManager.createQuery("from StylistEmployee where stylistEmail=:email and activeProfile=true", StylistEmployee.class);
+        query.setParameter("email",email);
 
-        return employeeTypedQuery.getSingleResult();
+        StylistEmployee stylistEmployee = query.getSingleResult();
+
+        if (stylistEmployee == null){
+            throw new RuntimeException("Did not found the employee");
+        }
+
+        return stylistEmployee;
     }
 }

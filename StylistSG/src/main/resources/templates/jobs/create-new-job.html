@@ -40,12 +40,6 @@
                         <option th:each="tempCustomer : ${customersList}" th:value="${tempCustomer.customerId}" th:text="${tempCustomer.customerFirstName} + ' ' + ${tempCustomer.customerLastName}"></option>
                     </select>
 
-                    <label class="form-label">Estilista: *</label>
-                    <select th:field="*{stylistId}" class="form-select mb-3 w-25"  aria-label="Default select example" placeholder="Selecione o estilista" required>
-                        <option selected value="">Selecione</option>
-                        <option th:each="tempStylist : ${stylist}" th:value="${tempStylist.stylistId}" th:text="${tempStylist.stylistFirstName} + ' ' + ${tempStylist.stylistLastName}"></option>
-                    </select>
-
                     <label class="form-label">Entrega: *</label>
                     <input type="date" th:field="*{finishDate}" class="form-control mb-3 w-25">
                     <div th:if="${#fields.hasErrors('finishDate')}" style="margin-bottom: 25px" class="text-danger">

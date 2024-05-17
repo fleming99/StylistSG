@@ -47,9 +47,7 @@ public class StylistEmployee {
             inverseJoinColumns = @JoinColumn(name = "role_name_id"))
     private Collection<StylistRole> userRoles;
 
-    @OneToOne(mappedBy = "stylistId")
-    private Jobs stylistJob;
-
+    @Autowired
     public StylistEmployee(String stylistEmail, String stylistPassword, Collection<StylistRole> userRoles, boolean activeProfile){
         this.stylistEmail = stylistEmail;
         this.stylistPassword = stylistPassword;
